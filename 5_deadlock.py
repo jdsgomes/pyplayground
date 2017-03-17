@@ -21,14 +21,14 @@ def write_balance(account, new_balance):
     line_prepender(account, str(new_balance))
 
 def transfer_free(source_acc, dst_acc, amount):
+    print('Transfering %d from %s to %s' % (amount, source_acc, dst_acc))
     with lock_1:
         balance_src = read_balance(source_acc)
         balance_src_new  = balance_src - amount
         write_balance(source_acc, balance_src_new)
         with lock_2:
             balance_dst = read_balance(dst_acc)
-            print(balance_dst)
-            balance_dst_new  = balance_src + amount
+            balance_dst_new  = balance_dst + amount
             write_balance(dst_acc, balance_dst_new)
 
 def main():
