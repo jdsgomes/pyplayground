@@ -2,7 +2,7 @@ import cProfile
 import pstats
 import threading
 import time
-
+# money transfer system
 lock_1 = threading.Lock();
 lock_2 = threading.Lock();
 

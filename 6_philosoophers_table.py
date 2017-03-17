@@ -7,10 +7,14 @@ import time
 
 def philosopher(left, right):
     while True:
-        forks = sorted((left, right), key=lambda x: id(x))
+        forks = [left, right]
+        # forks = sorted((left, right), key=lambda x: id(x))
         with forks[0]:
+            print str(id(threading.currentThread())) + ' acquired fork ' + str(id(forks[0]))
             with forks[1]:
+                print str(id(threading.currentThread())) + ' acquired fork ' + str(id(forks[1]))
                 print str(id(threading.currentThread())) + 'is eating'
+                time.sleep(0.5) # eating time
 
 def main():
     n_forks = 5

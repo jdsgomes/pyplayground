@@ -3,6 +3,7 @@ import pstats
 import threading
 import time
 
+# Simple savings account
 def line_prepender(filename, line):
     with open(filename, 'r+') as f:
         content = f.read()
@@ -37,6 +38,6 @@ def main():
         thread.join()
     final_balance = read_balance(account)
     print('==== Final balance is %d ====' % final_balance)
-       
+
 if __name__ == "__main__":
     main()
